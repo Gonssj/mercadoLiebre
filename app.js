@@ -5,11 +5,18 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Se prendió en el puerto ${PORT}`);
+app.listen(3001, () => {
+  console.log("Se prendió");
 });
 
 app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "views/home.html"));
+});
+
+app.get("/register", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "views/register.html"));
+});
+
+app.post("/login", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "views/login.html"));
 });
